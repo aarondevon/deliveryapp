@@ -1,0 +1,19 @@
+{
+  "name": "deliveryapp",
+  "version": "1.0.0",
+  "description": "Delivery app for drivers that earn tips",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarondevon/deliveryapp.git"
+  },
+  "author": "Aaron Sawyer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aarondevon/deliveryapp/issues"
+  },
+  "homepage": "https://github.com/aarondevon/deliveryapp#readme"
+}
