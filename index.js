@@ -1,28 +1,17 @@
-const http = require('http');
+const express = require('express');
 const fs = require('fs');
 
-const urls = {
-   '/': 'Views/Home/index.html'
-   
-};
+const app = express();
+const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
-   console.log('Server running');
-   const url = req.url;
-   console.log(url);
-   if (url in urls) {
-      fs.readFile(urls[url], function(err, data) {
-         res.writeHead(200, {'Content-Type': 'text/html'});
-         res.write(data);
-         res.end();
-       });
-   } else {
-      fs.readFile('404.html', function(err, data) {
-         res.writeHead(404, {'Content-Type': 'text/html'});
-         res.write(data);
-         res.end();
-       });
-   }
+app.use('/users', (req, res, next) => {
+  console.log('I am here too');
+  res.send('<h1>Extra stuff</h1>');
 });
 
-server.listen(8080);
+app.use('/', (req, res, next) => {
+  res.send('<h1>Stuff</h1>');
+  console.log('I am here');
+});
+
+app.listen(port);
