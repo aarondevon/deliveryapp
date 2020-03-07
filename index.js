@@ -1,28 +1,26 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const path = require('path');
+const rootDir = require('./util/path');
+const app = express();
+const hbs = require('hbs');
+const port = process.env.PORT || 3000;
 
-const urls = {
-   '/': 'Views/Home/index.html'
-   
-};
+const partialsPath = path.join(__dirname, './views/partials');
 
-const server = http.createServer((req, res) => {
-   console.log('Server running');
-   const url = req.url;
-   console.log(url);
-   if (url in urls) {
-      fs.readFile(urls[url], function(err, data) {
-         res.writeHead(200, {'Content-Type': 'text/html'});
-         res.write(data);
-         res.end();
-       });
-   } else {
-      fs.readFile('404.html', function(err, data) {
-         res.writeHead(404, {'Content-Type': 'text/html'});
-         res.write(data);
-         res.end();
-       });
-   }
+// Setup handlebars
+app.set('view engine', 'hbs');
+hbs.registerPartials(partialsPath);
+
+app.use('/users', (req, res, next) => {
+  console.log('I am here too');
+  res.send('<h1>Extra stuff</h1>');
 });
 
-server.listen(8080);
+app.get('/', (req, res, next) => {
+  console.log('I am here');
+  res.render('index', {
+    title: 'Delivery App'
+  });
+});
+
+app.listen(port);
