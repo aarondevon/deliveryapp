@@ -8,7 +8,6 @@ constraint account_pk primary key (user_id)
 
 create table shift (
     shift_id varchar,
-    line_id smallserial not null,
     shift_date date not null,
     start_time time not null,
     end_time time not null,
@@ -24,7 +23,6 @@ constraint shift_fk foreign key (user_id) references account (user_id)
 
 create table orders (
     order_id varchar,
-    line_id smallserial not null,
     order_date date not null,
     billed number (6, 2) not null,
     received number (6, 2) not null,
@@ -38,7 +36,6 @@ constraint orders_fk2 foreign key (shift_id) references shift (shift_id),
 
 create table payment (
     payment_id varchar,
-    line_id smallserial not null,
     payment_type varchar not null,
     tip_type varchar not null,
     order_id varchar not null,
