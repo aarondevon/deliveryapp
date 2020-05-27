@@ -11,11 +11,11 @@ create table shift (
     shift_date date not null,
     start_time time not null,
     end_time time not null,
-    begin_odometer number (7, 1) not null,
-    end_odometer number (7, 1) not null,
-    miles number (7, 1) not null,
-    mile_reimbursement number (4, 2) not null,
-    mile_income number (6, 2) not null,
+    begin_odometer numeric (7, 1) not null,
+    end_odometer numeric (7, 1) not null,
+    miles numeric (7, 1) not null,
+    mile_reimbursement numeric (4, 2) not null,
+    mile_income numeric (6, 2) not null,
     user_id varchar not null,
 constraint shift_pk primary key (shift_id),
 constraint shift_fk foreign key (user_id) references account (user_id)
@@ -24,14 +24,14 @@ constraint shift_fk foreign key (user_id) references account (user_id)
 create table orders (
     order_id varchar,
     order_date date not null,
-    billed number (6, 2) not null,
-    received number (6, 2) not null,
-    tip number (6, 2) not null,
+    billed numeric (6, 2) not null,
+    received numeric (6, 2) not null,
+    tip numeric (6, 2) not null,
     user_id varchar not null,
     shift_id varchar not null,
 constraint orders_pk primary key (order_id),
 constraint orders_fk1 foreign key (user_id) references account (user_id),
-constraint orders_fk2 foreign key (shift_id) references shift (shift_id),
+constraint orders_fk2 foreign key (shift_id) references shift (shift_id)
 );
 
 create table payment (
