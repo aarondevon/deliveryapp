@@ -1,11 +1,15 @@
 const express = require('express');
 const path = require('path');
-const rootDir = require('./util/path');
+//const rootDir = require('./util/path');
 const app = express();
 const hbs = require('hbs');
 const port = process.env.PORT || 3000;
 
 const partialsPath = path.join(__dirname, './views/partials');
+
+const publicDirectoryPath = path.join(__dirname, './public');
+
+app.use(express.static(publicDirectoryPath));
 
 // Setup handlebars
 app.set('view engine', 'hbs');
