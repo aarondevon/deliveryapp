@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const pg = require('pg');
 //const rootDir = require('./util/path');
 const app = express();
 const hbs = require('hbs');
@@ -23,7 +24,7 @@ app.use('/users', (req, res, next) => {
 app.get('/', (req, res, next) => {
   console.log('I am here');
   res.render('index', {
-    title: 'Delivery App'
+    title: 'Delivery App',
   });
 });
 
