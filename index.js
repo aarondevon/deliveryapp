@@ -24,7 +24,7 @@ hbs.registerPartials(partialsPath);
 // Add an account
 app.get('/account', async (req, res) => {
   try {
-    const account = await pool.query('SELECT * FROM account');
+    const account = await client.query('SELECT * FROM account');
     res.json(account.rows);
   } catch (err) {
     console.error(err.message);
