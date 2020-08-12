@@ -4,7 +4,12 @@ export default class Login extends React.Component<{}, {}> {
   render() {
     return (
       <div>
-        <h1>This is from the Log in</h1>
+        <h1>Idag</h1>
+        <form>
+          <input type="text" />
+
+          <button type="submit">Login</button>
+        </form>
       </div>
     );
   }
