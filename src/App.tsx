@@ -1,18 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
+import CreateAccount from "./components/CreateAccount";
 
-export default class App extends React.Component<{},{}> {
+export default class App extends React.Component<{}, {}> {
   render() {
-    return (
-        <div className="App">
-          <header className="App-header">
-            <Login/>
-          </header>
-        </div>
+    // @ts-ignore
+      return (
+
+      <div className="App">
+          <Router>
+              <Switch>
+                  <Route path="/create">
+                      <CreateAccount />
+                  </Route>
+                  <Route path="/">
+                      <header className="App-header">
+                          <Login login="hello" />
+                      </header>
+                  </Route>
+              </Switch>
+          </Router>
+
+      </div>
     );
   }
-
-
 }
