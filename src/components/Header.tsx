@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-class Header extends React.Component<any, any> {
+export default class Header extends React.Component<any, any> {
 
     render() {
         return (
-            <div>
+
                 <header>
                     <nav>
                         <ul>
@@ -13,7 +13,7 @@ class Header extends React.Component<any, any> {
                         </ul>
                     </nav>
                 </header>
-            </div>
+
         )
     }
 }
