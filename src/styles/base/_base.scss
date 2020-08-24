@@ -1,6 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  max-width: 960px;
-  margin: 0 auto;
+background: #f9fafb;
+
 }
 
 .center {
@@ -11,7 +15,5 @@ body {
   display: flex;
 }
 
-.form {
-  border: 1px solid #000;
-  font-size: 1.25rem;
-}
+
+
