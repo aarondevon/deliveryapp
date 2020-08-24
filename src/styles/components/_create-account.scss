@@ -1,0 +1,61 @@
+.create-account-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.form-container {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+}
+
+.create-account-header {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.form {
+  font-size: 1.25rem;
+  padding: 30px 40px
+}
+
+.form-control {
+  margin-bottom: 30px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form button {
+  background: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+
+
+}
+
