@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Login from './components/Login';
 import CreateAccount from "./components/CreateAccount";
+import SummaryPage from "./components/SummaryPage";
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -19,7 +20,10 @@ export default class App extends React.Component<{}, {}> {
                   <Route path="/create">
                       <CreateAccount />
                   </Route>
-                  <Route path="/">
+                  <Route path="/summary">
+                      <SummaryPage />
+                  </Route>
+                  <Route path="/" >
                       <header className="App-header">
                           <Login login="hello" />
                       </header>
