@@ -8,6 +8,8 @@ import {
 import Login from './components/Login';
 import CreateAccount from "./components/CreateAccount";
 import SummaryPage from "./components/SummaryPage";
+import StartShift from './components/StartShift';
+import ViewShifts from './components/ViewShifts';
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -22,6 +24,12 @@ export default class App extends React.Component<{}, {}> {
                   </Route>
                   <Route path="/summary">
                       <SummaryPage />
+                  </Route>
+                  <Route path="/start-shift">
+                      <StartShift />
+                  </Route>
+                  <Route path="/view-shifts">
+                      <ViewShifts />
                   </Route>
                   <Route path="/" >
                       <header className="App-header">

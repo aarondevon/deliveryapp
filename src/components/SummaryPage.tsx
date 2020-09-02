@@ -21,7 +21,7 @@ export default class SummaryPage extends React.Component<any, any> {
                     </ul>
                 </div>
                 <button><Link to="/start-shift">Start Shift</Link></button>
-                <button>View Shifts</button>
+                <button><Link to="/view-shift">View Shifts</Link></button>
             </div>
         )
     }
