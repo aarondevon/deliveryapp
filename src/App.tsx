@@ -9,7 +9,7 @@ import Login from './components/Login';
 import CreateAccount from "./components/CreateAccount";
 import SummaryPage from "./components/SummaryPage";
 import StartShift from './components/StartShift';
-import ViewShifts from './components/ViewShifts';
+import ShiftListPage from './components/ShiftListPage';
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -29,9 +29,9 @@ export default class App extends React.Component<{}, {}> {
                       <StartShift />
                   </Route>
                   <Route path="/view-shifts">
-                      <ViewShifts />
+                      <ShiftListPage />
                   </Route>
-                  <Route path="/" >
+                  <Route path="/" exact={true}>
                       <header className="App-header">
                           <Login login="hello" />
                       </header>
