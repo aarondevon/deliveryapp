@@ -1,3 +1,5 @@
+create database deliveryDB;
+
 create table account (
     account_id bigserial,
     account_user_name varchar not null,
