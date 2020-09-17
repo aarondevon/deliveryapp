@@ -28,6 +28,7 @@
     "eject": "../client/node_modules/.bin/react-scripts eject",
     "start": "node server/server.js"
   },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },
