@@ -21,7 +21,7 @@ const pool = new Pool({
   password: 'i2m19axtga',
   host: 'localhost',
   port: 5432,
-  database: 'deliveryDB'
+  database: 'deliverydb'
 });
 
 module.exports = pool;
