@@ -9,29 +9,17 @@ const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(cors());
-app.use(express.json()); // => allows us to access the req.body
+// Don't know if I need { extended: false } or not
+app.use(express.json({ extended: false })); // => allows us to access the req.body
 
 //remove when ready to deploy to heroku
 // app.use(express.static(path.join(__dirname, './client/build')));
 
-//ROUTES//
-
-//create user
-app.post("/create", async(req, res) => {
-  try {
-    const { userName, email, password } = req.body;
-    console.log('trying');
-    const newUser = await pool.query(
-        "INSERT INTO account (account_user_name, account_user_email, account_user_password)" +
-        "VALUES($1, $2, $3)",
-        [userName, email, password]
-    );
-
-    res.json(newUser);
-  } catch (err) {
-    console.error(err.message);
-  }
-})
+// Define Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/create_account', require('./routes/api/createAccount'));
+app.use('/api/runs', require('./routes/api/runs'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 // if (process.env.NODE_ENV === 'production') {
 //   //server static content
