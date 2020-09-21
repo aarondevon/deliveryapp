@@ -21,9 +21,13 @@
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "cd client && yarn install && yarn build",
-    "nodemon": "nodemon server.js"
+    "nodemon": "nodemon server.js",
+    "client": "yarn start --prefix client",
+    "dev": "concurrently \"yarn run nodemon\" \"yarn run client\""
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2"
   }
 }
