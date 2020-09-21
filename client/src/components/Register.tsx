@@ -30,6 +30,15 @@ class Register extends React.Component<any,CreateAccountState> {
         })
     }
 
+    onSubmit (event:React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        if(this.state.password !== this.state.passwordTwo) {
+           console.log('Passwords do not match');
+        } else {
+            console.log(this.state);
+        }
+    }
+
     render() {
         const {name, email, password, passwordTwo} = this.state;
 
@@ -40,7 +49,7 @@ class Register extends React.Component<any,CreateAccountState> {
 
                     <div className="form-container">
 
-                        <form id="form" className=" form">
+                        <form id="form" className=" form" onSubmit={event => this.onSubmit(event)}>
                             <h2 className="create-account-header">Register With Us</h2>
                             <div className="form-control">
                                 <label htmlFor="name">Name</label>
@@ -63,7 +72,11 @@ class Register extends React.Component<any,CreateAccountState> {
                                     type="email"
                                     placeholder="Email"
                                     name="email"
-                                    value={email}/>
+                                    onChange={(event:any) => this.onChange(event)}
+                                    value={email}
+                                    required
+                                />
+
                             </div>
 
                             <div className="form-control">
@@ -72,6 +85,7 @@ class Register extends React.Component<any,CreateAccountState> {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
+                                    onChange={(event:any) => this.onChange(event)}
                                     value={password}
                                     // minLength="6"
                                 />
@@ -80,7 +94,12 @@ class Register extends React.Component<any,CreateAccountState> {
 
                             <div className="form-control">
                                 <label htmlFor="passwordTwo">Confirm Password</label>
-                                <input type="password" placeholder="Password" name="passwordTwo" value={passwordTwo}/>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    name="passwordTwo"
+                                    onChange={(event:any) => this.onChange(event)}
+                                    value={passwordTwo}/>
                             </div>
 
 
