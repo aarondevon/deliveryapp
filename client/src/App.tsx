@@ -10,36 +10,41 @@ import CreateAccount from "./components/CreateAccount";
 import SummaryPage from "./components/SummaryPage";
 import StartShift from './components/StartShift';
 import ShiftListPage from './components/ShiftListPage';
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
 
 export default class App extends React.Component<{}, {}> {
   render() {
     // @ts-ignore
       return (
+          <Provider store={store}>
+              <div className="App">
+                  <Router>
+                      <Switch>
+                          <Route path="/create">
+                              <CreateAccount />
+                          </Route>
+                          <Route path="/summary">
+                              <SummaryPage />
+                          </Route>
+                          <Route path="/start-shift">
+                              <StartShift />
+                          </Route>
+                          <Route path="/view-shifts">
+                              <ShiftListPage />
+                          </Route>
+                          <Route path="/" exact={true}>
+                              <header className="App-header">
+                                  <Login login="hello" />
+                              </header>
+                          </Route>
+                      </Switch>
+                  </Router>
 
-      <div className="App">
-          <Router>
-              <Switch>
-                  <Route path="/create">
-                      <CreateAccount />
-                  </Route>
-                  <Route path="/summary">
-                      <SummaryPage />
-                  </Route>
-                  <Route path="/start-shift">
-                      <StartShift />
-                  </Route>
-                  <Route path="/view-shifts">
-                      <ShiftListPage />
-                  </Route>
-                  <Route path="/" exact={true}>
-                      <header className="App-header">
-                          <Login login="hello" />
-                      </header>
-                  </Route>
-              </Switch>
-          </Router>
+              </div>
+          </Provider>
 
-      </div>
     );
   }
 }
