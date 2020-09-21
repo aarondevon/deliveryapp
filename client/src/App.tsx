@@ -6,7 +6,7 @@ import {
     Link
 } from 'react-router-dom';
 import Login from './components/Login';
-import CreateAccount from "./components/CreateAccount";
+import Register from "./components/Register";
 import SummaryPage from "./components/SummaryPage";
 import StartShift from './components/StartShift';
 import ShiftListPage from './components/ShiftListPage';
@@ -23,7 +23,7 @@ export default class App extends React.Component<{}, {}> {
                   <Router>
                       <Switch>
                           <Route path="/create">
-                              <CreateAccount />
+                              <Register />
                           </Route>
                           <Route path="/summary">
                               <SummaryPage />

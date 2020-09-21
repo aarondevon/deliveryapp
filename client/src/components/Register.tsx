@@ -11,7 +11,7 @@ interface CreateAccountState  {
     passwordTwo: ''
 }
 
-class CreateAccount extends React.Component<any,CreateAccountState> {
+class Register extends React.Component<any,CreateAccountState> {
 
     constructor(props: any) {
         super(props);
@@ -95,5 +95,5 @@ class CreateAccount extends React.Component<any,CreateAccountState> {
         )
     }
 }
-export default CreateAccount;
-// export default connect(null, { register })(CreateAccount);
+
+export default connect(null, { register })(Register);
