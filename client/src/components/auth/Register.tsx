@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import Header from './Header'
+import Header from '../Header'
 import { connect } from 'react-redux';
-import { register } from '../actions/auth';
+import {Link} from "react-router-dom";
+import {setAlert} from "../../actions/alert";
 
 interface CreateAccountState  {
     name: '',
@@ -30,12 +31,13 @@ class Register extends React.Component<any,CreateAccountState> {
         })
     }
 
-    onSubmit (event:React.FormEvent<HTMLFormElement>) {
+    async onSubmit (event:React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         if(this.state.password !== this.state.passwordTwo) {
+            this.props.setAlert('Passwords do not match!', 'danger');
            console.log('Passwords do not match');
         } else {
-            console.log(this.state);
+            console.log('success')
         }
     }
 
@@ -102,10 +104,12 @@ class Register extends React.Component<any,CreateAccountState> {
                                     value={passwordTwo}/>
                             </div>
 
-
-
                             <button type="submit">Create Account</button>
                         </form>
+                        <div className="create-account">
+                            Already have an account?
+                            <Link to="/">Sign In</Link>
+                        </div>
                     </div>
                 </div>
 
@@ -115,4 +119,4 @@ class Register extends React.Component<any,CreateAccountState> {
     }
 }
 
-export default connect(null, { register })(Register);
+export default connect(null, { setAlert })(Register);

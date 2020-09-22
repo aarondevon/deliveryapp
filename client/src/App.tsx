@@ -5,8 +5,8 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-import Login from './components/Login';
-import Register from "./components/Register";
+import Login from './components/auth/Login';
+import Register from "./components/auth/Register";
 import SummaryPage from "./components/SummaryPage";
 import StartShift from './components/StartShift';
 import ShiftListPage from './components/ShiftListPage';
