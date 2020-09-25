@@ -4,6 +4,7 @@ import Header from '../Header'
 import { connect } from 'react-redux';
 import {Link} from "react-router-dom";
 import {setAlert} from "../../actions/alert";
+import {register} from "../../actions/auth";
 
 interface CreateAccountState  {
     name: '',
@@ -33,11 +34,15 @@ class Register extends React.Component<any,CreateAccountState> {
 
     async onSubmit (event:React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        if(this.state.password !== this.state.passwordTwo) {
+
+        const { name, email, password, passwordTwo } = this.state;
+
+        if(password !== passwordTwo) {
             this.props.setAlert('Passwords do not match!', 'danger');
            console.log('Passwords do not match');
         } else {
-            console.log('success')
+            this.props.register({ name, email, password });
+            console.log('successful registration');
         }
     }
 
@@ -119,4 +124,12 @@ class Register extends React.Component<any,CreateAccountState> {
     }
 }
 
-export default connect(null, { setAlert })(Register);
+// const mapDispatchToProps = (dispatch:any) => {
+//     return {
+//         register: ({ name, email, password }) => dispatch({
+//                 type: 'REGISTER_SUCCESS',
+//         })
+//     }
+// };
+
+export default connect(null, { setAlert, register })(Register);
