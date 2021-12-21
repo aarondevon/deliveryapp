@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    // ...
+    "react-hooks"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "func-names": ["error", "never"],
+    "linebreak-style": 0,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-undef": "warn",
+    "arrow-body-style": "warn",
+    "dot-notation": "warn",
+    "no-param-reassign": "warn",
+    "react/destructuring-assignment": "warn",
+    "react/prop-types": "warn",
+    "react/button-has-type": "warn"
+  }
+}
